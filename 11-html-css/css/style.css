@@ -1,0 +1,33 @@
+h1 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 24px;
+}
+
+p {
+    margin: 12px 0;
+}
+
+.navigation {
+    text-align: right;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.main {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.text, .kittens {
+    float: left;
+    width: 50%;
+}
+
+.text-content {
+    margin-right: 20px;
+}
+
+.kittens img {
+    vertical-align: top;
+}

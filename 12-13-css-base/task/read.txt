@@ -1,0 +1,16 @@
+Прочитать про работу со свойствами
+display: inline, block, inline-block
+position
+top, left
+margin,
+padding,
+float, clear
+
+объяснение флоатов
+http://softwaremaniacs.org/blog/2005/12/01/css-layout-float/
+
+Про поток:
+http://softwaremaniacs.org/blog/2005/08/27/css-layout-flow/
+
+Хороший туториал про верстку:
+http://habrahabr.ru/post/202408/

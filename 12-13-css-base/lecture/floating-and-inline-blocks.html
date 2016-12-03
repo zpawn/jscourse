@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		.floated {
+			background: rgba(255,0,0,.1);
+			margin-bottom: 100px;
+		}
+
+		.floated .float {
+			width: 100px;
+			height: 100px;
+			background: cyan;
+			float: left;
+		}
+
+		.floated .clear {
+			clear: both;
+			width: auto;
+			border: 1px solid magenta;
+		}
+
+
+
+		.overflowed {
+			overflow: hidden;
+		}
+
+		.cleared:after {
+			display:block;
+			clear: both;
+			content : '';
+		}
+
+		.inlined {
+			display: inline-block;
+			*display: inline;
+			zoom: 1;
+		}
+
+		.floated.inline-blocks .float {
+			float: none;
+			display: inline-block;
+			*display: inline;
+			zoom: 1;
+		}
+
+		.font-size {
+			font-size: 0;
+		}
+
+		.font-size .float {
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Дополнительный элемент, очищающий поток</h1>
+	<div class="floated">
+		<div class="float">1</div>
+		<div class="float">2</div>
+		<div class="float">3</div>
+		<div class="float">4</div>
+		<div class="float">5</div>
+		<div class="float">6</div>
+		<div class="float">7</div>
+		<div class="float">8</div>
+		<div class="float">9</div>
+		<div class="float">10</div>
+		<div class="float">11</div>
+		<div class="clear"></div>
+	</div>
+
+	<h1>overflow:hidden у контейнера</h1>
+	<div class="floated overflowed">
+		<div class="float">1</div>
+		<div class="float">2</div>
+		<div class="float">3</div>
+		<div class="float">4</div>
+		<div class="float">5</div>
+		<div class="float">6</div>
+		<div class="float">7</div>
+		<div class="float">8</div>
+		<div class="float">9</div>
+		<div class="float">10</div>
+		<div class="float">11</div>
+	</div>
+
+	<h1>Псевдоэлемент</h1>
+	<div class="floated cleared">
+		<div class="float">1</div>
+		<div class="float">2</div>
+		<div class="float">3</div>
+		<div class="float">4</div>
+		<div class="float">5</div>
+		<div class="float">6</div>
+		<div class="float">7</div>
+		<div class="float">8</div>
+		<div class="float">9</div>
+		<div class="float">10</div>
+		<div class="float">11</div>
+	</div>
+
+	<h1>display:inline-block у контейнера</h1>
+	<div class="floated inlined">
+		<div class="float">1</div>
+		<div class="float">2</div>
+		<div class="float">3</div>
+		<div class="float">4</div>
+		<div class="float">5</div>
+		<div class="float">6</div>
+		<div class="float">7</div>
+		<div class="float">8</div>
+		<div class="float">9</div>
+		<div class="float">10</div>
+		<div class="float">11</div>
+	</div>
+
+	<h1>Инлайновые блоки</h1>
+	<div class="floated inline-blocks">
+		<div class="float">1</div>
+		<div class="float">2</div>
+		<div class="float">3</div>
+		<div class="float">4</div>
+		<div class="float">5</div>
+		<div class="float">6</div>
+		<div class="float">7</div>
+		<div class="float">8</div>
+		<div class="float">9</div>
+		<div class="float">10</div>
+		<div class="float">11</div>
+	</div>
+
+	<h1>Инлайновые блоки без пробелов в исходном HTML</h1>
+	<div class="floated inline-blocks">
+		<div class="float">1</div><div class="float">2</div><div class="float">3</div><div class="float">4</div><div class="float">5</div><div class="float">6</div><div class="float">7</div><div class="float">8</div><div class="float">9</div><div class="float">10</div><div class="float">11</div>
+	</div>
+
+	<h1>Инлайновые блоки. Font-size:0 у родителя</h1>
+	<div class="floated inline-blocks font-size">
+		<div class="float">1</div>
+		<div class="float">2</div>
+		<div class="float">3</div>
+		<div class="float">4</div>
+		<div class="float">5</div>
+		<div class="float">6</div>
+		<div class="float">7</div>
+		<div class="float">8</div>
+		<div class="float">9</div>
+		<div class="float">10</div>
+		<div class="float">11</div>
+	</div>
+</body>
+</html>

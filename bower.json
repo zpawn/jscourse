@@ -1,0 +1,12 @@
+{
+  "name": "jscourse.local",
+  "authors": [
+    "zpawn <ilia.makarov@me.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {}
+}
