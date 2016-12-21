@@ -1,0 +1,429 @@
+/*
+primary:    #ec4444;
+nav-bg:     #484848;
+nav:        #919191;
+nav-separator: #d3d3d3;
+
+input-bg:   #373737;
+border:     #ededed;
+text:       #a1a1a1;
+title-blue: #44a7ec;
+title-gray: #484848;
+
+text: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans' , Tahoma, sans-serif;
+primary: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+*/
+
+/*** Sprites ***/
+[class^=icon-] {
+    background-image: url(./../images/sprites.png?v=1);
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.icon-blackberry {
+    width: 106px;
+    height: 127px;
+    background-position: 0 0;
+}
+
+.icon-facebook {
+    width: 33px;
+    height: 33px;
+    background-position: -106px 0;
+}
+
+.icon-ipad {
+    width: 85px;
+    height: 115px;
+    background-position: -139px 0;
+}
+
+.icon-logo {
+    width: 50px;
+    height: 49px;
+    background-position: -106px -115px;
+}
+
+.icon-pc {
+    width: 138px;
+    height: 93px;
+    background-position: -224px 0;
+}
+
+.icon-search {
+    width: 16px;
+    height: 17px;
+    background-position: -106px -93px;
+}
+
+.icon-stuble-upon {
+    width: 33px;
+    height: 33px;
+    background-position: -224px -93px;
+}
+
+.icon-twitter {
+    width: 33px;
+    height: 28px;
+    background-position: -257px -93px;
+}
+
+.icon-vimeo {
+    width: 34px;
+    height: 31px;
+    background-position: -290px -93px;
+}
+
+.icon-windows-phone {
+    width: 63px;
+    height: 110px;
+    background-position: -156px -124px;
+}
+
+/*** Grid ***/
+.row:after {
+    clear: both;
+    display: block;
+    content: '';
+}
+
+[class^='col-'] {
+    float: left;
+}
+
+.col-2 {
+    width: 50%;
+}
+
+.col-4 {
+    width: 25%;
+}
+
+.col-2 .col-left {
+    padding-right: 10px;
+}
+
+.col-2 .col-right {
+    padding-left: 10px;
+}
+
+body {
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 1.3em;
+    color: #a1a1a1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans' , Tahoma, sans-serif;
+    line-height: 1.3em;
+}
+
+h1 {
+    font-size: 6em;
+    color: #ec4444;
+}
+
+h2 {
+    font-size: 4em;
+    color: #484848;
+}
+
+h3 {
+    font-size: 2em;
+    color: #44a7ec;
+}
+
+h4 {
+    font-size: 1.5em;
+    color: #44a7ec;
+}
+
+a {
+    color: #44a7ec;
+}
+
+.separator {
+    height: 1px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAABAgMAAABrkIxgAAAACVBMVEVMaXHJycmhoaEprjQHAAAAAnRSTlMAlxj4y98AAAALSURBVHjaY1jCAAABSwClupsb5wAAAABJRU5ErkJggg==');
+    margin: 25px 0 20px;
+}
+
+.wrapper {
+    max-width: 965px;
+    margin: 0 auto;
+}
+
+.navbar li {
+    list-style: none;
+    display: inline-block;
+}
+
+.navbar a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans' , Tahoma, sans-serif;
+}
+
+.header .top-menu {
+    height: 40px;
+    font-size: 12px;
+    background-color: #484848;
+}
+
+.header .nav-menu ul {
+    float: left;
+    margin-top: 15px;
+}
+
+    .header .nav-menu li {
+        padding: 0 10px;
+    }
+
+    .header .nav-menu a {
+        color: #919191;
+    }
+
+.header .login-form {
+    float: right;
+    margin-top: 10px;
+}
+
+.header .login-form .login-form-title {
+    color: #919191;
+    text-transform: uppercase;
+}
+
+.header .login-form input {
+    font-size: 10px;
+    width: 95px;
+    padding: 5px;
+    background-color: #373737;
+    border: 1px solid #373737;
+    border-radius: 4px;
+    color: #919191;
+}
+
+.header .login-form input,
+.header .login-form .btn {
+    margin-left: 5px;
+}
+
+/* Chrome/Opera/Safari */
+input::-webkit-input-placeholder {
+    color: #919191;
+}
+/* Firefox 19+ */
+input::-moz-placeholder {
+    color: #919191;
+}
+/* IE 10+ */
+input:-ms-input-placeholder {
+    color: #919191;
+}
+/* Firefox 18- */
+input:-moz-placeholder {
+    color: #919191;
+}
+
+.btn {
+    color: #fff;
+    background-color: #ec4444;
+    text-transform: uppercase;
+    border-width: 0;
+    border-radius: 4px;
+    padding: 3px 8px 5px;
+}
+
+/*** logo ***/
+.logo {
+    margin: 15px 0;
+    position: relative;
+}
+
+.logo .icon-logo {
+    position: absolute;
+}
+
+.logo .company-name {
+    display: inline-block;
+    font-size: 2.5em;
+    font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans' , Tahoma, sans-serif;
+    color: #373737;
+    padding: 15px 0;
+    margin-left: 60px;
+}
+
+.logo .color-primary {
+    color: #ec4444;
+}
+
+.header .main-menu-navigation {
+    color: #919191;
+    background-color: #dedede;
+    border-radius: 3px;
+}
+
+.header .main-menu-navigation:after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.header .main-menu {
+    float: left;
+}
+
+    .header .main-menu li {
+        padding: 12px;
+        border-right: 1px solid #ededed; 
+    }
+
+    .header .main-menu a {
+        color: #484848;
+    }
+
+.header .search {
+    float: right;
+    padding: 6px 5px;
+}
+
+.search .search-control {
+    position: relative;
+}
+
+.search-control .search-input {
+    width: 200px;
+    font-size: 12px;
+    padding: 5px;
+    background-color: #373737;
+    border: 1px solid #373737;
+    border-radius: 4px;
+    line-height: 1.3em;
+    color: #919191;
+}
+
+.search-control [class*=icon] {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+
+.list li {
+    padding-left: 30px;
+    font-size: 14px;
+    line-height: 1.4em;
+}
+
+.list li:before {
+    position: absolute;
+    content: '\25cf';
+    color: #44a7ec;
+    margin-left: -20px;
+}
+
+.list-inline li {
+    display: inline-block;
+    padding-left: 10px;
+}
+
+.banner {
+    margin-top: 75px;
+    margin-bottom: 50px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.banner:after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.banner .title {
+    margin-bottom: 20px;
+}
+
+.banner .banner-image {
+    float: right;
+}
+
+.banner .btn-appstore {
+    position: absolute;
+    bottom: 0;
+}
+
+.products h2 {
+    margin-bottom: 35px;
+}
+
+.products .inner {
+    position: relative;
+    margin-right: 15px;
+    height: 100px;
+    border: 1px solid #ededed;
+    border-radius: 3px;
+    padding: 10px;
+    padding-right: 40%;
+}
+
+.products .icon-ipad,
+.products .icon-blackberry,
+.products .icon-windows-phone,
+.products .icon-pc {
+    position: absolute;
+    right: -7px;
+    bottom: -5px;
+}
+
+.products .icon-blackberry {
+    bottom: -15px;
+}
+
+.products .icon-pc {
+    bottom: -2px;
+}
+
+.blog h2 {
+    margin-bottom: 25px;
+}
+
+.blog .publish {
+    margin: 10px 0;
+}
+
+.blog p {
+    margin-top: 5px;
+    margin-bottom: 20px
+}
+
+.about h2, .twitter h2 {
+    margin-bottom: 25px;
+}
+
+.about .read-more {
+    margin: 30px 0;
+}
+
+.twitter section {
+    margin-bottom: 15px;
+}
+
+.footer {
+    background-color: #484848;
+}
+
+.footer .copyright {
+    padding: 30px 0 25px;
+}
+
+.footer .copyright a {
+    color: #a1a1a1;
+}
+
+.footer .social {
+    padding-top: 20px;
+    float: right;
+}
