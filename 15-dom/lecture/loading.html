@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loading effect</title>
+    <style>
+        body.loading .loader {
+            display: block;
+        }
+        .loader {
+            display: none;
+        }
+        body.loading .content {
+            display: none;
+        }
+        .content {
+            display: block;
+        }
+
+    </style>
+    <script>
+        // Attribute change
+        (function () {
+            var loading = document.querySelector('.loading');
+            var content = document.querySelector('.content');
+            loading.style.display = 'none';
+            content.style.display = 'block';
+        });
+
+        // Body class
+        (function () {
+            document.body.classList.toggle('loading');
+        });
+    </script>
+</head>
+<body class="loading">
+    <div class="loader">
+        <img src="images/ajax-loader.gif" alt="loading">
+    </div>
+    <div class="content">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae tenetur, voluptas iusto. Architecto dignissimos dicta corporis distinctio illo laboriosam, nesciunt, quibusdam, nihil tenetur nemo earum expedita libero ad incidunt impedit.
+    </div>
+    
+</body>
+</html>
