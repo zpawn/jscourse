@@ -38,36 +38,26 @@ function isArray (obj) {
     return Object.prototype.toString.call(obj) === '[object Array]';
 }
 
-function concatElm (data, container, item) {
-
-    var resultItem,
-        resultContainer = document.createElement(container);
-
-    for (var i = 0; i < data.length; i += 1) {
-        resultItem = document.createElement(item);
-        if (isArray(data[i])) {
-            resultItem.appendChild(concatElm(data[i], container, item));
-        } else {
-            resultItem.innerText = data[i];
-        }
-        resultContainer.appendChild(resultItem);
-    }
-
-    return resultContainer;
-}
-
 function createList (listData, listContainer, itemContainer) {
-    var container = listContainer || 'ul',
-        item = itemContainer || 'li',
-        result = concatElm(listData, container, item);
+    var listContainer = listContainer || 'ul',
+        itemContainer = itemContainer || 'li',
+        result = document.createElement(listContainer),
+        listItemContainer;
 
-    document.body.appendChild(result);
-    
+    for (var i = 0; i < listData.length; i += 1) {
+        listItemContainer = document.createElement(itemContainer);
+        if (isArray(listData[i])) {
+            listItemContainer.appendChild(createList(listData[i]), listContainer, itemContainer);
+        }
+        listItemContainer.innerText = listData[i];
+        result.appendChild(listItemContainer);
+    }
+    return result;
 }
 
-createList(['мясо', 'рыба']);
-createList(['мясо', ['яблоки', 'бананы']], 'ol');
-createList(['мясо', ['яблоки', 'бананы']], 'div', 'div');
+console.log(createList(['мясо', 'рыба']));
+console.log(createList(['мясо', ['яблоки', 'бананы']], 'ol'));
+console.log(createList(['мясо', ['яблоки', 'бананы']], 'div', 'div'));
 
 /**
  * Реализовать функцию getExternalLinks, которая возвращает массив ссылок, 
