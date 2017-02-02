@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resize of Window</title>
+</head>
+<body>
+
+    <input type="text" class="input-width">
+    x
+    <input type="text" class="input-height">
+
+    <script>
+        (function () {
+            'use strict'
+            
+            var widthNode = window.document.querySelector('.input-width');
+            var heightNode = window.document.querySelector('.input-height');
+
+            function updateDimentions () {
+                console.log('thisIsResize');
+                widthNode.value = window.innerWidth;
+                heightNode.value = window.innerHeight;
+            }
+
+            window.addEventListener('resize', updateDimentions, false );
+            updateDimentions();
+        }());
+    </script>
+</body>
+</html>

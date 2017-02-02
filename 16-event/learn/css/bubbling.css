@@ -1,0 +1,21 @@
+.outer, .inner, .text {
+  padding: 20px; }
+
+.outer {
+  background-color: #f00; }
+
+.inner {
+  background-color: #00f; }
+
+.text {
+  background-color: #ff0; }
+
+.tree ul {
+  display: none; }
+  .tree ul.open {
+    display: block; }
+.tree li > span:hover {
+  font-weight: bold;
+  cursor: pointer; }
+
+/*# sourceMappingURL=bubbling.css.map */

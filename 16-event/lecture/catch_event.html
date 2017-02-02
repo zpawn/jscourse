@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Catch Event</title>
+    <style>
+        .outer, .inner, .text { padding: 15px; }
+        .outer { background-color: #ff0; }
+        .inner { background-color: #f00; }
+        .text { background-color: #fff; }
+    </style>
+
+    <script>
+        // Перехватчик событий (в том случае, если dom еще не создан)
+        document.documentElement.addEventListener('click', function (event) {
+            if (event.target.nodeName === 'A') {
+                console.log('clickLink');
+            }
+        }, true);
+    </script>
+</head>
+<body>
+
+    <div class="outer">
+        <div class="inner">
+            <div class="text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A molestiae voluptate asperiores omnis nesciunt numquam tempora deserunt odio cumque reprehenderit, laborum quos amet minus quam sunt ducimus iste distinctio quasi!
+            </div>
+        </div>
+        <a href="#">google</a>
+        <a href="#">yandex</a>
+    </div>
+
+    <script>
+        var text = document.querySelector('.text');
+
+        text.addEventListener('click', function () {
+            var link = document.createElement('a');
+            link.href = '#';
+            link.innerText = 'dinamicLink';
+            this.parentNode.appendChild(link);
+        }, true);
+    </script>
+</body>
+</html>

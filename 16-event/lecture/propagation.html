@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Propagation Event</title>
+    <style>
+        .outer, .inner, .text { padding: 15px; }
+        .outer { background-color: #ff0; }
+        .inner { background-color: #f00; }
+        .text { background-color: #fff; }
+    </style>
+
+    <script>
+        document.documentElement.addEventListener('click', function (event) {
+            if (event.target.nodeName === 'A') {
+                event.preventDefault();
+                console.log('clickedLink');
+            }
+        }, true);
+    </script>
+</head>
+<body>
+
+    <div class="outer">
+        <div class="inner">
+            <div class="text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A molestiae voluptate asperiores omnis nesciunt numquam tempora deserunt odio cumque reprehenderit, laborum quos amet minus quam sunt ducimus iste distinctio quasi!
+            </div>
+        </div>
+        <a href="https://google.com.ua">google</a>
+        <a href="https://yandex.ru">yandex</a>
+    </div>
+
+    <script>
+        var outer = document.querySelector('.outer');
+        var inner = document.querySelector('.inner');
+        var text = document.querySelector('.text');
+
+        function log (event) {
+            // event.target - элемент в сторону которого погружается событие (т.е. на каком элементе произошел клик)
+            console.log(this);
+        }
+
+        inner.addEventListener('click', log, true);
+        text.addEventListener('click', log, true);
+
+        // остановка распространения
+        outer.addEventListener('click', function (event) {
+            log.apply(this, arguments);
+            event.stopPropagation();
+        }, true);
+    </script>
+</body>
+</html>

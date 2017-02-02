@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events</title>
+    <link rel="stylesheet" href="./css/events.css">
+</head>
+<body>
+
+    <input type="button" id="hider" value="Нажмите, чтобы спрятать текст" />
+    <div id="text">Текст</div>
+
+    <button type="button" class="self-hide">SelfHide</button>
+    
+    <ul class="menu">
+        <li>
+            <a class="item" href="#">
+                <span>Сладости (нажми меня)!</span>
+            </a>
+            <ul class="sub-menu">
+                <li>Торт</li>
+                <li>Пончик</li>
+                <li>Пирожное</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="panes">
+        <div class="pane">
+            <h3 class="title">Лошадь</h3>
+            <p>Домашняя лошадь — животное семейства непарнокопытных, одомашненный и единственный сохранившийся подвид дикой лошади, вымершей в дикой природе, за исключением небольшой популяции лошади Пржевальского.</p>
+            <button class="remove-button">[x]</button>
+        </div>
+        <div class="pane">
+            <h3 class="title">Осёл</h3>
+            <p>Домашний осёл или ишак — одомашненный подвид дикого осла, сыгравший важную историческую роль в развитии хозяйства и культуры человека. Все одомашненные ослы относятся к африканским ослам.</p>
+            <button class="remove-button">[x]</button>
+        </div>
+        <div class="pane">
+            <h3 class="title">Корова, а также пара слов о диком быке, о волах и о тёлках. </h3>
+            <p>Коро́ва — самка домашнего быка, одомашненного подвида дикого быка, парнокопытного жвачного животного семейства полорогих. Самцы вида называются быками, молодняк — телятами, кастрированные самцы — волами. Молодых (до первой стельности) самок называют тёлками.</p>
+            <button class="remove-button">[x]</button>
+        </div>
+    </div>
+
+<div id="carousel" class="carousel">
+    <button class="arrow-prev">⇦</button>
+    <button class="arrow-next">⇨</button>
+
+    <div class="carousel-gallery">
+        <ul class="carousel-items">
+            <li class="item"><span class="icon-1"></span></li>
+            <li class="item"><span class="icon-2"></span></li>
+            <li class="item"><span class="icon-3"></span></li>
+            <li class="item"><span class="icon-4"></span></li>
+            <li class="item"><span class="icon-5"></span></li>
+            <li class="item"><span class="icon-6"></span></li>
+            <li class="item"><span class="icon-7"></span></li>
+            <li class="item"><span class="icon-8"></span></li>
+            <li class="item"><span class="icon-9"></span></li>
+            <li class="item"><span class="icon-10"></span></li>
+        </ul>
+    </div>
+</div>
+    
+    <script src="./js/events.js"></script>
+</body>
+</html>

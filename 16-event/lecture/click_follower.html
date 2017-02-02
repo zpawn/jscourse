@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Click follower</title>
+    <style>
+        .click-follower {
+            display: none;
+            position: absolute;
+            width: 200px;
+            border: 1px dotted #f00;
+        }
+    </style>
+</head>
+<body>
+    <div class="click-follower">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa assumenda velit voluptas, magnam porro cumque, quo nobis ipsum eligendi nihil veritatis perferendis, esse, laborum aliquam dolorum debitis vel quod accusantium.
+    </div>
+    
+    <script>
+        var contextMenuNode = document.querySelector('.click-follower');
+        document.addEventListener('click', function (event) {
+            contextMenuNode.style.display = 'block';
+            contextMenuNode.style.left = event.x + 'px';
+            contextMenuNode.style.top = event.y + 'px';
+
+        }, false);
+    </script>
+</body>
+</html>

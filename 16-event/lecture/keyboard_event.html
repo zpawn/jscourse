@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyboard Event</title>
+    <style>
+        .last-keycode {
+            font-size: 2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="last-keycode"></div>
+    <input type="text" class="text-input">
+
+    <script>
+        document.documentElement.addEventListener('keyup', function (event) {
+            document.querySelector('.last-keycode').innerHTML = event.keyCode;
+        }, false);
+
+        document.querySelector('.text-input').addEventListener('keyup', function (event) {
+            console.log(event.keyCode + ':', this.value);
+        }, false);
+    </script>
+</body>
+</html>
