@@ -1,0 +1,29 @@
+#bagua-table {
+
+  th {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  td {
+    width: 150px;
+    white-space: nowrap;
+    text-align: center;
+    vertical-align: bottom;
+    padding-top: 5px;
+    padding-bottom: 12px;
+  }
+
+  .nw { background: #999; }
+  .n { background: #03f; }
+  .ne { background: #ff6; }
+  .w { background: #ff0; }
+  .c { background: #60c; }
+  .e { background: #09f; }
+  .sw { background: #963; }
+  .s { background: #f60; }
+  .se { background: #0c3; }
+  .highlight { background: red; }
+
+  .n, .c, .e, .s, .se { color: #fff; }
+}
