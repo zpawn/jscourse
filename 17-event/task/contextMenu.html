@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ContextMenu</title>
+    <link rel="stylesheet" href="./css/contextMenu.css">
+</head>
+
+<body>
+
+    <script src="./js/contextMenu.js"></script>
+    <script>
+        (function () {
+            var menuExample = [{
+                title: 'File',
+                action: function () { console.log('open file') }
+            }, {
+                title: 'Edit',
+                action: function () { console.log('edit content') }
+            }, {
+                title: 'More stuff',
+                submenu: [{
+                    title: 'Send by email',
+                    action: function () { console.log('emailed') }
+                }, {
+                    title: 'Send via skype',
+                    action: function () { console.log('skyped') }
+                }, {
+                    title: 'Slack',
+                    submenu: [{
+                        title: 'message',
+                        action: function () { console.log('slackSendMessage') }
+                    }, {
+                        title: 'call',
+                        action: function () { console.log('slackCalled') }
+                    }, {
+                        title: 'api',
+                        action: function () { console.log('slackGetApi') }
+                    }]
+                }]
+            }]
+
+            var cm = new ContextMenu(document.documentElement, menuExample);
+        } ());
+    </script>
+</body>
+
+</html>

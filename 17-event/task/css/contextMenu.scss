@@ -1,0 +1,54 @@
+@import 'normalize';
+
+$text-color:    lighten(#000, 20%);
+$base-gray:     #f6f6f6;
+$border-color: $base-gray;
+
+@mixin list-unstyled ($color: $border-color) {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 1px solid $color;
+}
+
+.context-menu {
+    position: absolute;
+    border: 1px solid $border-color;
+    display: none;
+    @include list-unstyled;
+
+    ul {
+        position: absolute;
+        @include list-unstyled;
+        top: -1px;
+        left: 100%;
+        display: none;
+    }
+
+    li {
+        position: relative;
+        white-space: nowrap;
+        padding: 5px 25px 5px 10px;
+        color: $text-color;
+        cursor: pointer;
+
+        &:not(:last-of-type) {
+            border-bottom: 1px solid $border-color;
+        }
+
+        &:hover {
+            background-color: $base-gray;
+
+            > ul {
+                display: block;
+            }
+        }
+
+        .icon-submenu:before {
+            content: '\25b6';
+            font-size: 12px;
+            position: absolute;
+            right: 5px;
+        }
+    }
+}

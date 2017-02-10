@@ -8,5 +8,7 @@
   "license": "MIT",
   "homepage": "",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "normalize-css": "normalize.css#^5.0.0"
+  }
 }
