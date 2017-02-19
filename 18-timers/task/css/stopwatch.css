@@ -1,0 +1,19 @@
+.container {
+  width: 960px;
+  margin: 0 auto;
+  padding-top: 15px; }
+
+.stopwatch .stopwatch-controls [data-action="toggle"].stop {
+  background-color: #f0ad4e; }
+.stopwatch .stopwatch-laps {
+  margin-top: 20px; }
+  .stopwatch .stopwatch-laps .alert {
+    position: relative;
+    font-size: 1.3em; }
+    .stopwatch .stopwatch-laps .alert .close {
+      cursor: pointer;
+      background-color: #d9534f;
+      color: #fff;
+      opacity: 1;
+      border-radius: 5px;
+      padding: 0 4px 2px; }
