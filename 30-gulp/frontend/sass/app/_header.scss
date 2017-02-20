@@ -1,0 +1,18 @@
+$navbar-text-color: #fff;
+
+.header {
+    .navbar {
+        @media (min-width: $grid-float-breakpoint) {
+            border-radius: 0;
+        }
+
+        &.navbar-inverse {
+
+            .navbar-toggle {
+                border-color: $navbar-text-color;
+                color: $navbar-text-color;
+            }
+        }
+    }
+}
+

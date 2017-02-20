@@ -1,40 +1,31 @@
 'use strict';
 
 const gulp = require('gulp');
+const sass = require('gulp-sass');
+const concat = require('gulp-concat');
+const debug = require('gulp-debug');
 
 /**
- * minimatch:
- *      ** - all recursive dirs
- *      *.* - all ext
+ * Compile SASS
  */
-gulp.task('dest', function () {
-    return gulp.src('30-gulp/source/**/*.*')
-        .on('data', function (file) {
-            console.dir(file);
-        })
-        .pipe(gulp.dest('30-gulp/dest'));
+gulp.task('sass', function() {
+    return gulp.src('30-gulp/frontend/**/app.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(concat('app.css'))
+        .pipe(gulp.dest('30-gulp/public/css'))
 });
 
 /**
- *
+ * Concat all app files
  */
-gulp.task('dest:info', function () {
-    // return gulp.src('30-gulp/source/**/*.{js,css}')
-    // or
-    return gulp.src(['30-gulp/source/**/*.js', '30-gulp/source/**/*.css'])
-        .on('data', function (file) {
-            console.log({
-                contents:   file.contents,
-                path:       file.path,
-                cwd:        file.cwd,
-                base:       file.base,
-                // path component helpers
-                relative:   file.relative,
-                dirname:    file.dirname,
-                basename:   file.basename,
-                stem:       file.stem,
-                extname:    file.extname
-            });
-        })
-        .pipe(gulp.dest('30-gulp/dest'));
+gulp.task('concat:js', function () {
+    return gulp
+        .src('30-gulp/frontend/js/**/*.js')
+        .pipe(concat('app.min.js'))
+        .pipe(gulp.dest('30-gulp/public/js'));
 });
+
+/**
+ * Concat app and compile SASS
+ */
+gulp.task('build', ['sass', 'concat:js']);
