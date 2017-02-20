@@ -11,6 +11,7 @@
   "devDependencies": {
     "gulp-concat": "^2.6.1",
     "gulp-debug": "^3.1.0",
-    "gulp-sass": "^3.1.0"
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.1"
   }
 }
