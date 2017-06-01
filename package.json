@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prestart": "npm install",
+    "postinstall": "bower install"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-autoprefixer": "4.0.0",
+    "gulp-cssnano": "2.1.2",
     "del": "^2.2.2",
     "gulp-concat": "^2.6.1",
     "gulp-debug": "^3.1.0",
