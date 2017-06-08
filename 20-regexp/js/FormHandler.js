@@ -133,7 +133,7 @@
         }
 
         if (elm.classList.contains('js-agree')) {
-            if (!elm.checked) {
+            if (!_.isChecked(elm)) {
                 this._errors.push({
                     elm: elm,
                     message: 'Галочка "Согласен со всем" не поставлена'

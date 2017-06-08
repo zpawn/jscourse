@@ -27,7 +27,7 @@
             },
 
             isChecked: function (value) {
-                console.log('check isChecked');
+                return value.checked;
             },
 
             isBlank: function (string) {
