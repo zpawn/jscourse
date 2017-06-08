@@ -1,50 +1,11 @@
 'use strict';
 
 const gulp = require('gulp');
-const sass = require('gulp-sass');
-const concat = require('gulp-concat');
-const sourcemaps = require('gulp-sourcemaps');
-const debug = require('gulp-debug');
-const del = require('del');
 
-/**
- * Compile SASS
- */
-gulp.task('sass', function() {
-    return gulp.src('30-gulp/frontend/**/app.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(concat('app.css'))
-        .pipe(gulp.dest('30-gulp/public/css'))
-});
-
-/**
- * Concat all app files
- */
-gulp.task('concat:js', function () {
-    return gulp
-        .src('30-gulp/frontend/js/**/*.js')
-        .pipe(concat('app.min.js'))
-        .pipe(gulp.dest('30-gulp/public/js'));
-});
-
-/**
- * Puild project
- */
-gulp.task('build', ['clean', 'sass', 'concat:js', 'assets']);
-
-/**
- * Copy files in public dir
- */
-gulp.task('assets', function () {
-    return gulp
-        .src('./vendor/bootstrap-sass/assets/fonts/bootstrap/**/*.*')
-        .pipe(debug({title: 'src'}))
-        .pipe(gulp.dest('30-gulp/public/fonts'));
-});
-
-/**
- * Clean public
- */
-gulp.task('clean', function () {
-    return del('30-gulp/public');
+/** Lesson 20: RegExp */
+gulp.task('20:css', require('./20-regexp/gulpfile.js').build20Css);
+gulp.task('20:js', require('./20-regexp/gulpfile.js').build20Js);
+gulp.task('20:build', gulp.parallel('20:css', '20:js' ));
+gulp.task('20:watch', function () {
+    gulp.watch('./20-regexp/js/**/*.js', gulp.series('20:js'));
 });

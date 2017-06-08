@@ -8,5 +8,7 @@
   "license": "MIT",
   "homepage": "",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7"
+  }
 }
