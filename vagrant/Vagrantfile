@@ -1,0 +1,26 @@
+Vagrant.configure(2) do |config|
+  # box name
+  config.vm.box = "ubuntu/trusty64"
+
+  # Configure VM
+  config.vm.provider "virtualbox" do |v|
+    v.name = 'jscourse'
+    v.memory = 1024
+    v.cpus = 1
+  end
+
+  # forward application port
+  config.vm.network "forwarded_port", guest: 80, host: 9990
+
+  # create private network
+  config.vm.network "private_network", ip: "192.168.100.104"
+
+  # share app folder
+  config.vm.synced_folder "./../", "/var/www/jscourse.local",
+    owner: "vagrant",
+    group: "www-data",
+    mount_options: ["dmode=775,fmode=775"]
+
+  # install nginx and dev dependencies
+  config.vm.provision "shell", path: "./bootstrap.sh"
+end
