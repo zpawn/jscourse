@@ -4,7 +4,6 @@ const gulp = require('gulp');
 const concat = require('gulp-concat');
 const sourcemaps = require('gulp-sourcemaps');
 
-
 exports.build20Js = function () {
     var src = [
         './20-regexp/js/validate.js',
