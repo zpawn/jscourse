@@ -1,0 +1,68 @@
+.flex__container {
+    height: 100vh;
+    background-color: yellowgreen;
+    display: flex;
+    align-items: flex-start;
+}
+
+.flex__elm {
+    flex-basis: 100px;
+    height: 100px;
+    background-color: yellow;
+    margin: 5px;
+
+}
+
+.flex__elm:nth-child(1) { flex-shrink: 1 }
+.flex__elm:nth-child(2) { flex-grow: 1 }
+.flex__elm:nth-child(3) { flex-grow: 1 }
+.flex__elm:nth-child(4) { flex-grow: 1 }
+.flex__elm:nth-child(5) { flex-grow: 1 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.flex__elm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex__elm > span {
+    font-family: monospace;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    color: yellow;
+    background-color: yellowgreen;
+    padding: 10px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
