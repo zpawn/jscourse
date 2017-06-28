@@ -1,0 +1,56 @@
+@import "./../../../bower_components/normalize-css/normalize";
+
+$primary-color:     #ffa500;
+$border-color:      #c1c1c1;
+
+.slider {
+  display: flex;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .slider__controls {
+    width: 20%;
+
+    .slider__controls_item {
+      box-sizing: border-box;
+      height: 25%;
+      width: 100%;
+      position: relative;
+
+      &:hover { cursor: pointer }
+
+      &.active {
+        background-color: $primary-color;
+
+        &:after {
+          display: block;
+          content: '';
+          position: absolute;
+          right: -20px;
+          top: calc(50% - 10px);
+          border: 10px solid transparent;
+          border-left-color: $primary-color;
+        }
+      }
+
+      &:not(:last-child) { border-bottom: 1px solid $border-color }
+
+    }
+  }
+
+  .slider__slides-wrapper {
+    width: 910px;
+    overflow: hidden;
+
+    .slider__slides {
+      width: 910px * 4;
+      .slider__slides-items {
+        float: left;
+      }
+    }
+  }
+}
