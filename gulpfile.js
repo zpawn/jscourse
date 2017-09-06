@@ -18,3 +18,12 @@ gulp.task('22:watch', function () {
     gulp.watch('./22-jquery-animation/task/js/**/*.js', gulp.series('22:js'));
     gulp.watch('./22-jquery-animation/task/sass/**/*.scss', gulp.series('22:sass'));
 });
+
+
+/** Lesson 23: Ajax */
+gulp.task('23:css', require('./23-ajax/gulpfile').build23Css);
+gulp.task('23:js', require('./23-ajax/gulpfile').build23Js);
+gulp.task('23', gulp.parallel('23:css', '23:js' ));
+gulp.task('23:watch', function () {
+    gulp.watch('./23-ajax/task/js/**/*.js', gulp.series('23:js'));
+});
