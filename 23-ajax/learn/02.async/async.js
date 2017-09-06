@@ -21,8 +21,9 @@
      * xhr.getResponseHeader('Content-Type')    - return value of response headers
      * xhr.getAllResponseHeaders()              - return all headers
      *
-     * xhr.timeout = 30000;                     - set timeout of request
-     * xhr.ontimeout = function() { ... }       - then handled timeout
+     * Delay:
+     *      xhr.timeout = 30000;                     - set timeout of request
+     *      xhr.ontimeout = function() { ... }       - then handled timeout
      *
      * Other event:
      *      loadstart   – запрос начат.
