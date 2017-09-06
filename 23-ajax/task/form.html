@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Форма с валидацией</title>
+	<link rel="stylesheet" href="dist/app.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Форма сбора данных</h1>
+		<form role="form" id="infoForm">
+			<div class="form-group">
+				<label class="control-label" for="email">Почта (будет использована как логин)<sup>*</sup></label>
+				<input class="form-control js-required js-email" id="email" placeholder="Почта" type="text">
+			</div>
+
+			<div class="form-group js-required">
+				<label class="control-label" for="password">Пароль (постарайся придумать посложнее)<sup>*</sup></label>
+				<input class="form-control js-required js-password" id="password" placeholder="Пароль" type="password">
+			</div>
+
+			<div class="form-group">
+				<label for="city">Город проживания (указывать не обязательно)</label>
+				<input class="form-control" id="city" placeholder="Город" type="text">
+			</div>
+
+			<div class="form-group">
+				<label for="phone">Телефон (указывать не обязательно)</label>
+				<input class="form-control js-phone" id="phone" placeholder="phone ex. +380631234567" type="text">
+			</div>
+
+			<div class="form-group">
+				<div class="checkbox">
+					<label class="has-error">
+						<input type="checkbox" class="js-agree"> Согласен со <a href="/">всем</a>
+					</label>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">Отправить данные</button>
+			</div>
+		</form>
+	</div>
+
+	<script src="dist/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+.alert {
+	margin-top: 5px;
+}
+
+.form-group .control-label > sup {
+	color: red;
+}
