@@ -1,4 +1,4 @@
-(function () {
+(function ($) {
     'use strict';
 
     function validator () {
@@ -35,22 +35,15 @@
             },
 
             emailIsSet: function (findEmail) {
+                var endpoint = 'https://aqueous-reaches-8130.herokuapp.com/check-email/?email=' + findEmail,
+                    isEmailUsed = new $.Deferred();
 
-                var STATE_READY = 4,
-                    endpoint = 'https://aqueous-reaches-8130.herokuapp.com/check-email/?email=' + findEmail,
-                    request = new XMLHttpRequest(),
-                    response;
+                $.get(endpoint, function (res) {
+                    isEmailUsed.resolve(res.used);
+                });
 
-                request.open('get', endpoint, false);
-                request.onreadystatechange = function () {
-                    if (request.readyState === STATE_READY) {
-                        response = JSON.parse(request.responseText);
-                    }
-                };
-                request.send();
-                return response.used;
+                return isEmailUsed;
             },
-
             trim: function (string) {
                 return (string) ? string.replace(/^\s+|\s+$/g, '') : string
             }
@@ -58,4 +51,4 @@
     }
 
     window.validator = validator();
-}());
+}(jQuery));

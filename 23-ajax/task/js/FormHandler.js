@@ -72,6 +72,7 @@
     FormHandler.prototype._checkField = function (elm) {
 
         var _ = validator,
+            f = this,
             value = _.trim(elm.value);
 
         if (elm.classList.contains('js-required')) {
@@ -91,12 +92,15 @@
                 });
             }
 
-            if (_.emailIsSet(value, this._getEmails())) {
-                this._errors.push({
-                    elm: elm,
-                    message: 'email уже занят'
-                });
-            }
+            _.emailIsSet(value).then(function (isEmailUsed) {
+                if (isEmailUsed) {
+                    f._errors.push({
+                        elm: elm,
+                        message: 'email уже занят'
+                    });
+                    f._markErrors();
+                }
+            });
         }
 
         if (elm.classList.contains('js-password')) {
