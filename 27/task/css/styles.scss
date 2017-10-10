@@ -1,0 +1,15 @@
+@import "./../../../bower_components/bootstrap/scss/bootstrap";
+
+.tag-manager__badge {
+    .tag-manager__badge-btn {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.tag-manager__input {
+    .tag-manager__input-btn:hover {
+        color: #495057;
+    }
+}

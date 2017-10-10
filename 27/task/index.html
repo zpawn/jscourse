@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tag manager</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="row jsTagManager">
+        <div class="col-12">
+            <a href="javascript:void(0)">
+                <span id="tagManagerEdit">редактировать</span>
+                <span id="tagManagerView">просмотр</span>
+            </a>
+        </div>
+
+        <div class="col-12" id="tagManagerList"></div>
+
+        <div class="col-12">
+            <form>
+                <div class="form-group tag-manager__input">
+                    <label for="managerInput"></label>
+                    <div class="input-group">
+                        <input class="form-control" id="managerInput" type="text" placeholder="Input tag">
+                        <button class="input-group-addon tag-manager__input-btn" href="javascript:void(0)">Add</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

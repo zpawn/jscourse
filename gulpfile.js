@@ -27,3 +27,8 @@ gulp.task('23', gulp.parallel('23:css', '23:js' ));
 gulp.task('23:watch', function () {
     gulp.watch('./23-ajax/task/js/**/*.js', gulp.series('23:js'));
 });
+
+/** Lesson 27 */
+gulp.task('27:sass', require('./27/gulpfile').build27Scss);
+gulp.task('27:js', require('./27/gulpfile').build27Js);
+gulp.task('27', gulp.parallel('27:sass', '27:js'));
