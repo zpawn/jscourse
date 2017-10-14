@@ -1,0 +1,66 @@
+.todo-widget{
+	height: 347px;
+	width: 900px;
+	margin: 20px auto;
+}
+
+.todo-groups{
+	padding-left: 14px;
+	/*float: left;*/
+	width: 40%;
+	border-right: 1px solid transparent;
+	border-color: #ddd;
+	height: 100%;
+}
+
+.todos{
+	padding-right: 14px;
+	width: 60%;
+	position: relative;
+	/*float: left;*/
+}
+
+.todo-groups, .todos, .filter{
+	float: left;
+	
+}
+
+.todo-groups, .todos{
+	padding-top: 14px;
+}
+
+.todo-groups-list{
+	margin-top: 10px;
+	height: 222px;
+	overflow: auto;
+}
+.todo-groups-list li:hover{
+	background: rgb(245, 245, 245);
+}
+
+.todo-list{
+	margin-top: 10px;
+	margin-bottom: 20px;
+	overflow: auto;
+	height: 222px;
+}
+
+.list-group-item-control{
+	position: absolute;
+	right:10px;
+}
+
+.item-active{
+	background: rgb(245, 245, 245);
+}
+
+.todo-list .header {
+	margin-bottom: 0;
+}
+
+
+.todo-status-container{
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}

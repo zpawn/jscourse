@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Todo application</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="js/lib/jquery-ui-1.11.4.custom/jquery-ui.min.css">
+	<script src="js/lib/jquery-1.11.0.min.js"></script>
+	<script src="js/lib/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+	<script src="js/lib/script.js"></script>
+	<script type="text/javascript" src="js/lib/todowidget.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class='tmp-todos' ></div>
+		<!-- <div class="todo-widget-container">
+			<div class="todo-widget panel panel-default">
+				
+   					<div class="todo-groups">
+						<div class="filter col-md-10 col-md-offset-1 input-group input-group-sm">
+	 						<span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+							<input type="text" class="tag-input form-control" placeholder="..." >
+							<span class="input-group-addon">
+								<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+							</span>
+						</div>
+						<div class="todo-groups-list panel panel-default">
+							<ul class="list-group">
+							  <li class="list-group-item">Cras justo odio 
+							  	<span class="list-group-item-control">
+							  		<a href="#">
+							  			<span  class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+							  		</a>
+							  		<a href="#">
+							  			<span  class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+							  		</a>
+							  	</span>
+							  	</li>
+							  <li class="list-group-item">Dapibus ac facilisis in</li>
+							  <li class="list-group-item item-active">Morbi leo risus
+							  	<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+							  </li>
+							  <li class="list-group-item"> <input type="text" laceholder="Amount"></li>
+							  <li class="list-group-item">Vestibulum at eros</li>
+							</ul>
+						</div>
+						<input class="btn btn-defult col-md-6 col-md-offset-3" type="button" value="Добавить">
+					</div>
+					<div class="todos">
+						<div class="filter col-md-6 col-md-offset-1 input-group input-group-sm">
+	 						<span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+							<input type="text" class="tag-input form-control" placeholder="..." >
+							<span class="input-group-addon">
+								<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+							</span>
+						</div>
+						<span class="todo-status-container">
+        					<input type="checkbox">Показывать сделанные
+      					</span>
+						<div class="todo-list">
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover">
+									<tr class="active" >
+										<th><span class=" glyphicon glyphicon-triangle-bottom aria-hidden="true""></span>Что нужно сделать</th>
+										<th><span class="glyphicon glyphicon-triangle-bottom aria-hidden="true""></span>Когда</th>
+										<th><span class="glyphicon glyphicon-triangle-bottom aria-hidden="true""></span>Состояние</th>
+									</tr>
+									<tr>
+										<td>Составить план</td>
+										<td>24/5/2015</td>
+										<td>true</td>
+									</tr>
+									<tr>
+										<td>Составить план</td>
+										<td>24/5/2015</td>
+										<td>true</td>
+									</tr>
+									<tr>
+										<td>Составить план</td>
+										<td>24/5/2015</td>
+										<td>true</td>
+									</tr>
+									<tr>
+										<td>Составить план</td>
+										<td>24/5/2015</td>
+										<td>true</td>
+									</tr>
+									<tr>
+										<td>Составить план</td>
+										<td>24/5/2015</td>
+										<td>true</td>
+									</tr>
+								</table>
+							</div>	
+						</div>
+						<input class="btn btn-defult  col-md-6 col-md-offset-3" type="button" value="Добавить">
+					
+  				</div> -->
+			</div>
+		</div>
+<!-- 		<h1>Главный файл приложения</h1>
+		<p>Доступное <a href="https://github.com/podgorniy/todo-server#api">API</a> описано в README репозитория</p>
+		<p>Попробуй из командной строки:</p>
+		<h4>Список всех todo списков</h4>
+		<pre><code>$.get('/todos', function (response) {
+	console.log(response)
+})</code></pre>
+
+		<h4>Данные по определенному списку</h4>
+		<p>Формат данных можно менять как угодно на свое усмотрение, не обязательно придерживаться демонстрационного формата</p>
+		<pre><code>$.get('/todos/another-task', function (response) {
+    console.log(response)
+})</code></pre>
+
+		<h4>Создать новый todo список с названием "foo"</h4>
+		<pre><code>$.post('/todos/foo', {
+	todo: JSON.stringify({
+        	title: "Foo todo list",
+        	created: new Date().toString(),
+        	tasks: []
+	})
+})</code></pre>
+
+		<h4>Добавить новую задачу в todo список "foo" (сработает только если тот уже создан)</h4>
+		<pre><code>$.getJSON('/todos/foo').then(function(fooTodoList) {
+		fooTodoList.tasks.push({
+			description: 'Add new task',
+			done: false
+		})
+		return fooTodoList
+		}).then(function(fooTodoList) {
+			return $.ajax({
+				url: '/todos/foo',
+				method: 'PUT',
+				data: {
+					todo: JSON.stringify(fooTodoList)
+			}
+		})
+})</code></pre>
+	</div> -->
+<script type="text/javascript">
+	var todo = new window.ToDoWidget('.tmp-todos');
+</script>
+</body>
+</html>

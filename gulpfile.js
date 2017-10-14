@@ -32,3 +32,15 @@ gulp.task('23:watch', function () {
 gulp.task('27:sass', require('./27/gulpfile').build27Scss);
 gulp.task('27:js', require('./27/gulpfile').build27Js);
 gulp.task('27', gulp.parallel('27:sass', '27:js'));
+
+/** Lesson 29: ToDo Manager */
+gulp.task('29:sass', require('./29-todo/gulpfiles/styles').sass);
+gulp.task('29:sass:watch', () => {
+    gulp.watch('./29-todo/public/src/scss/**/*.scss', require('./29-todo/gulpfiles/styles').sassWatch);
+});
+gulp.task('29:fonts', require('./29-todo/gulpfiles/styles').fonts);
+gulp.task('29:js:dep', require('./29-todo/gulpfiles/scripts').dependencies);
+gulp.task('29:js', require('./29-todo/gulpfiles/scripts').js);
+gulp.task('29:js:watch', () => {
+    gulp.watch('./29-todo/public/src/js/**/*.js', require('./29-todo/gulpfiles/scripts').jsWatch);
+});
