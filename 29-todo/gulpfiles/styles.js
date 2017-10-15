@@ -5,7 +5,8 @@ const gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     autoprefixer = require('gulp-autoprefixer'),
     csso = require('gulp-csso'),
-
+    notify = require('gulp-notify'),
+    plumber = require('gulp-plumber'),
     gulpif = require('gulp-if'),
     arg = require('yargs')
         .alias('d', 'dev')
@@ -25,6 +26,14 @@ const gulp = require('gulp'),
                 "last 2 versions"
             ]
         },
+        plumber: {
+            errorHandler: notify.onError((err) => {
+                return {
+                    title: 'Sass',
+                    message: err.message
+                }
+            })
+        },
         fonts: {
             src: [
                 './bower_components/dripicons/webfont/fonts/*.*'
@@ -43,6 +52,7 @@ module.exports = tasks;
 
 function sass () {
     return gulp.src(config.src)
+        .pipe(plumber(config.plumber))
         .pipe(
             gulpif(arg.dev, sourcemaps.init())
         )
