@@ -44,3 +44,4 @@ gulp.task('29:js', require('./29-todo/gulpfiles/scripts').js);
 gulp.task('29:js:watch', () => {
     gulp.watch('./29-todo/public/src/js/**/*.js', require('./29-todo/gulpfiles/scripts').jsWatch);
 });
+gulp.task('29:watch', gulp.parallel('29:sass:watch', '29:js:watch'));

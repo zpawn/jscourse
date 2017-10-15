@@ -35,9 +35,6 @@ const gulp = require('gulp'),
         sourcemaps: {
             loadMaps: true,
             largeFile: true
-        },
-        babel: {
-            presets: ['es2015']
         }
     },
 
@@ -58,7 +55,7 @@ function js () {
         .pipe(rename({
             dirname: ''
         }))
-        .pipe(babel(config.babel))
+        .pipe(babel())
         .pipe(concat(config.app.destFile))
         .pipe(
             gulpif(arg.dev, sourcemaps.write())
