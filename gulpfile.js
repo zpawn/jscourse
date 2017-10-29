@@ -40,7 +40,9 @@ gulp.task('29:sass:watch', () => {
 });
 gulp.task('29:fonts', require('./29-todo/gulpfiles/styles').fonts);
 gulp.task('29:js:dep', require('./29-todo/gulpfiles/scripts').dependencies);
-gulp.task('29:js', require('./29-todo/gulpfiles/scripts').js);
+gulp.task('29:js:app', require('./29-todo/gulpfiles/scripts').js);
+gulp.task('29:js', gulp.parallel('29:js:dep', '29:js:app'));
+gulp.task('29', gulp.parallel('29:sass', '29:fonts', '29:js'));
 gulp.task('29:js:watch', () => {
     gulp.watch('./29-todo/public/src/js/**/*.js', require('./29-todo/gulpfiles/scripts').jsWatch);
 });

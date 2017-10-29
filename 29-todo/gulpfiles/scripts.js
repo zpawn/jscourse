@@ -6,6 +6,8 @@ const gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     uglify = require('gulp-uglify'),
     babel = require('gulp-babel'),
+    notify = require('gulp-notify'),
+    plumber = require('gulp-plumber'),
 
     gulpif = require('gulp-if'),
     arg = require('yargs')
@@ -15,8 +17,10 @@ const gulp = require('gulp'),
     config = {
         app: {
             src: [
-                './29-todo/public/src/js/tag.manager.js',
-                './29-todo/public/src/js/**/*.js',
+                './29-todo/public/src/js/core/**/*.js',
+                './29-todo/public/src/js/*.class.js',
+                './29-todo/public/src/js/*.js',
+                './29-todo/public/src/js/app.js'
             ],
             destFile: 'tag.manager.js',
             dest: './29-todo/public/dist/js/.'
@@ -26,7 +30,8 @@ const gulp = require('gulp'),
             src: [
                 './bower_components/jquery/dist/jquery.js',
                 './bower_components/popper.js/dist/umd/popper.js',
-                './bower_components/bootstrap/dist/js/bootstrap.js'
+                './bower_components/bootstrap/dist/js/bootstrap.js',
+                './node_modules/lodash/lodash.js'
             ],
             destFile: 'dep.js',
             dest: './29-todo/public/dist/js/.'
@@ -35,7 +40,15 @@ const gulp = require('gulp'),
         sourcemaps: {
             loadMaps: true,
             largeFile: true
-        }
+        },
+        plumber: {
+            errorHandler: notify.onError((err) => {
+                return {
+                    title: 'JavaScript',
+                    message: err.message
+                }
+            })
+        },
     },
 
     tasks = {
@@ -47,8 +60,8 @@ const gulp = require('gulp'),
 module.exports = tasks;
 
 function js () {
-    return gulp
-        .src(config.app.src)
+    return gulp.src(config.app.src)
+        .pipe(plumber(config.plumber))
         .pipe(
             gulpif(arg.dev, sourcemaps.init(config.sourcemaps))
         )

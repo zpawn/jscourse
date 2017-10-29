@@ -1,1 +1,16 @@
+.tag-manager {
 
+  &__list {
+    .active {
+      a {
+        color: #fff;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  &__tasks {}
+}
