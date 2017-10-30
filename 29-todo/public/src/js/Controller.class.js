@@ -22,14 +22,14 @@
             this.listView.$root.on('click', 'a', e => {
                 let $elm = $(e.currentTarget),
                     $parent = $elm.closest('.js-list-parent'),
-                    listName = $parent.data('listName') || '';
+                    listId = $parent.data('listId') || '';
 
                 if ($elm.hasClass('js-list-set')) {
-                    this.model.find(listName);
+                    this.model.find(listId);
                 } else if ($elm.hasClass('js-list-edit')) {
                     console.log('edit');
                 } else if ($elm.hasClass('js-list-remove')) {
-                    this.model.remove(listName);
+                    this.model.remove(listId);
                 }
             });
 

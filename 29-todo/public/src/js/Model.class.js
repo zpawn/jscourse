@@ -9,10 +9,10 @@
 
         findAll () {
             this.store.find().then(
-                listNames => {
-                    return Promise.all(listNames.map(listName => {
-                        return this.store.find(listName).then(res => {
-                            return _.merge(res, {id: listName});
+                listIds => {
+                    return Promise.all(listIds.map(listId => {
+                        return this.store.find(listId).then(res => {
+                            return _.merge(res, {id: listId});
                         });
                     }));
                 }
@@ -22,8 +22,8 @@
             });
         }
 
-        findOne (listName) {
-            this.store.find(listName).then(
+        findOne (listId) {
+            this.store.find(listId).then(
                 res => Mediator.publish(res, 'task'),
                 err => console.error(err)
             );
@@ -37,7 +37,7 @@
          * }
          */
         create (form) {
-            let listName = Date.now();
+            let listId = Date.now();
             let data = {
                 todo: JSON.stringify({
                     title: form.elements[0].value,
@@ -46,15 +46,15 @@
                 })
             };
 
-            this.store.create(listName, data).then(
-                res => res.created ? this.find() : console.log('not created'),
+            this.store.create(listId, data).then(
+                res => res.created ? this.findAll() : console.log('not created'),
                 err => console.log(err)
             );
         }
 
-        remove (listName) {
-            this.store.remove(listName).then(
-                res => res.deleted ? this.find() : console.log('error:', res.error),
+        remove (listId) {
+            this.store.remove(listId).then(
+                res => res.deleted ? this.findAll() : console.log('error:', res.error),
                 err => console.log(err)
             );
         }

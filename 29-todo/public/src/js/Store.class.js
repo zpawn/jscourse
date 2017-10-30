@@ -7,25 +7,25 @@
             this.endpoint = '/todo';
         }
 
-        find (listName = '') {
-            return this.send('GET', listName);
+        find (listId = 0) {
+            return this.send('GET', listId);
         }
 
-        create (listName = '', data = {}) {
-            return this.send('POST', listName, data);
+        create (listId = 0, data = {}) {
+            return this.send('POST', listId, data);
         }
 
-        update (listName = '', data = {}) {
-            return this.send('PUT', listName, data);
+        update (listId = 0, data = {}) {
+            return this.send('PUT', listId, data);
         }
 
-        remove (listName = '') {
-            return this.send('DELETE', listName);
+        remove (listId = 0) {
+            return this.send('DELETE', listId);
         }
 
-        send (method = 'GET', listName, data) {
+        send (method = 'GET', listId, data) {
 
-            const url = `${this.endpoint}/${listName}`;
+            const url = `${this.endpoint}/${listId === 0 ? '' : listId}`;
 
             return new Promise((resolve, reject) => {
                 const req = new XMLHttpRequest();
