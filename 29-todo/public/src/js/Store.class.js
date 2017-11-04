@@ -12,11 +12,11 @@
         }
 
         create (listId = 0, data = {}) {
-            return this.send('POST', listId, data);
+            return this.send('POST', listId, {todo: JSON.stringify(data)});
         }
 
         update (listId = 0, data = {}) {
-            return this.send('PUT', listId, data);
+            return this.send('PUT', listId, {todo: JSON.stringify(data)});
         }
 
         remove (listId = 0) {

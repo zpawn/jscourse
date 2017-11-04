@@ -2,12 +2,17 @@
     "use strict";
 
     class TaskView {
+
+        static getRoot () {
+            return $("#todoTasks")
+        }
+
         constructor () {
-            this.$root = $("#todoTasks");
+            this.$root = TaskView.getRoot();
         }
 
         render (tasks) {
-            let $root = $("#todoTasks");
+            let $root = TaskView.getRoot();
 
             $root.html('');
 

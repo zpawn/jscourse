@@ -32,7 +32,6 @@
         listActive (listId) {
             ListView.getRoot().find('[data-list-id]').each((i, item) => {
                 let $listItem = $(item);
-
                 $listItem.removeClass('active');
 
                 if (parseInt($listItem.data('listId')) === listId) {

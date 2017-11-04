@@ -4,7 +4,7 @@
     class Model {
         constructor (store) {
             this.store = store;
-            this.listTasks = {};
+            this.lists = {};
         }
 
         findAll () {
@@ -16,9 +16,9 @@
                         });
                     }));
                 }
-            ).then(listTasks => {
-                this.listTasks = listTasks;
-                Mediator.publish(this.listTasks, 'list');
+            ).then(lists => {
+                this.lists = lists;
+                Mediator.publish(this.lists, 'list');
             });
         }
 
@@ -30,17 +30,31 @@
         }
 
         create (form) {
-            let listId = Date.now();
-            let data = {
-                todo: JSON.stringify({
+            let listId = Date.now(),
+                data = {
                     title: form.elements[0].value,
                     created: new Date().toString(),
                     tasks: []
-                })
-            };
+                };
 
             this.store.create(listId, data).then(
                 res => res.created ? this.findAll() : console.log('not created'),
+                err => console.log(err)
+            );
+        }
+
+        update (form, listId = 0) {
+
+            let list = this.getList(listId);
+
+            list.tasks.push({
+                description: form.elements[0].value,
+                done: false,
+                deadline: Date.now()
+            });
+
+            this.store.update(listId, list).then(
+                res => res.updated ? Mediator.publish(list.tasks, 'task') : console.log(res),
                 err => console.log(err)
             );
         }
@@ -52,9 +66,18 @@
             );
         }
 
+        getList (listId = 0) {
+            return this.lists.reduce((lists, list) => {
+                if (list.id == listId) {
+                    return list;
+                }
+                return lists;
+            }, {});
+        }
+
         getTasks (listId = 0) {
-            return this.listTasks.reduce((tasks, list) => {
-                if (list.id == parseInt(listId)) {
+            return this.lists.reduce((tasks, list) => {
+                if (list.id == listId) {
                     return list.tasks;
                 }
                 return tasks;

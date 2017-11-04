@@ -33,7 +33,7 @@
 
             if ($elm.hasClass('js-list-set')) {
                 this.listActive = listId;
-                Mediator.publish(this.model.getTasks(this.listActive), 'task');
+                Mediator.publish(this.model.getTasks(parseInt(this.listActive)), 'task');
                 Mediator.publish(this.listActive, 'listActive');
             } else if ($elm.hasClass('js-list-edit')) {
                 console.log('edit');
@@ -50,7 +50,8 @@
 
         _bindNewTaskSubmit (e) {
             e.preventDefault();
-            console.log('newTask:', e.target);
+            this.model.update(e.target, this.listActive);
+            $('#newToDoTask').val("");
         }
     }
 
