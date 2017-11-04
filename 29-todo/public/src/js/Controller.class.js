@@ -6,11 +6,13 @@
             this.model = model;
             this.listView = listView;
             this.taskView = taskView;
+            this.listActive = '';
 
             ////
 
             Mediator.subscribe(this.listView.render, 'list');
             Mediator.subscribe(this.taskView.render, 'task');
+            Mediator.subscribe(this.listView.listActive, 'listActive');
 
             ////
 
@@ -19,25 +21,36 @@
         }
 
         bind () {
-            this.listView.$root.on('click', 'a', e => {
-                let $elm = $(e.currentTarget),
-                    $parent = $elm.closest('.js-list-parent'),
-                    listId = $parent.data('listId') || '';
+            this.listView.$root.on('click', 'a', this._bindListItemClick.bind(this));
+            $('#addNewListForm').on('submit', this._bindNewListSubmit.bind(this));
+            $('#addNewTaskForm').on('submit', this._bindNewTaskSubmit.bind(this));
+        }
 
-                if ($elm.hasClass('js-list-set')) {
-                    this.model.find(listId);
-                } else if ($elm.hasClass('js-list-edit')) {
-                    console.log('edit');
-                } else if ($elm.hasClass('js-list-remove')) {
-                    this.model.remove(listId);
-                }
-            });
+        _bindListItemClick (e) {
+            let $elm = $(e.currentTarget),
+                $parent = $elm.closest('.js-list-parent'),
+                listId = $parent.data('listId') || '';
 
-            $('#addNewListForm').on('submit', e => {
-                e.preventDefault();
-                this.model.create(e.target);
-                $('#newToDoList').val("");
-            });
+            if ($elm.hasClass('js-list-set')) {
+                this.listActive = listId;
+                Mediator.publish(this.model.getTasks(this.listActive), 'task');
+                Mediator.publish(this.listActive, 'listActive');
+            } else if ($elm.hasClass('js-list-edit')) {
+                console.log('edit');
+            } else if ($elm.hasClass('js-list-remove')) {
+                this.model.remove(listId);
+            }
+        }
+
+        _bindNewListSubmit (e) {
+            e.preventDefault();
+            this.model.create(e.target);
+            $('#newToDoList').val("");
+        }
+
+        _bindNewTaskSubmit (e) {
+            e.preventDefault();
+            console.log('newTask:', e.target);
         }
     }
 

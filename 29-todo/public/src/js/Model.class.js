@@ -29,13 +29,6 @@
             );
         }
 
-        /**
-         * example: {
-         *      title: '',
-         *      created: new Date().toString(),
-         *      tasks: []
-         * }
-         */
         create (form) {
             let listId = Date.now();
             let data = {
@@ -57,6 +50,15 @@
                 res => res.deleted ? this.findAll() : console.log('error:', res.error),
                 err => console.log(err)
             );
+        }
+
+        getTasks (listId = 0) {
+            return this.listTasks.reduce((tasks, list) => {
+                if (list.id == parseInt(listId)) {
+                    return list.tasks;
+                }
+                return tasks;
+            }, []);
         }
     }
 

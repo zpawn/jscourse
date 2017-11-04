@@ -14,6 +14,7 @@
 
 <span class="dripicons-chevron-right"></span>
 <span class="dripicons-arrow-thin-down"></span>
+<span class="dripicons-calendar"></span>
 
 <section class="container">
 
@@ -43,7 +44,7 @@
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Save</button>
-                    <button type="button" class="btn btn-outline-secondary">Cancel</button>
+                    <button type="button" class="btn btn-outline-secondary" data-toggle="collapse" data-target="#addNewListForm">Cancel</button>
                 </div>
             </form>
 
@@ -79,7 +80,17 @@
 
             <br>
 
-            <button class="btn btn-outline-primary btn-block" type="button">Add task</button>
+            <form class="collapse" id="addNewTaskForm">
+                <div class="form-group">
+                    <input class="form-control" type="text" id="newToDoTask" placeholder="Task name">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-outline-secondary" data-toggle="collapse" data-target="#addNewTaskForm">Cancel</button>
+                </div>
+            </form>
+
+            <button class="btn btn-outline-primary btn-block" type="button" data-toggle="collapse" data-target="#addNewTaskForm">Add task</button>
         </div>
     </div>
 </section>

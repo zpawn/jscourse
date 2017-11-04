@@ -2,13 +2,18 @@
     "use strict";
 
     class ListView {
+
+        static getRoot () {
+            return $("#todoList");
+        }
+
         constructor () {
-            this.$root = $("#todoList");
+            this.$root = ListView.getRoot();
         }
 
         render (listTasks) {
 
-            let $root = $('#todoList');
+            let $root = ListView.getRoot();
             $root.html('');
 
             _.forEach(listTasks, listItem => {
@@ -21,6 +26,18 @@
                         </span>
                     </div>
                 </li>`);
+            });
+        }
+
+        listActive (listId) {
+            ListView.getRoot().find('[data-list-id]').each((i, item) => {
+                let $listItem = $(item);
+
+                $listItem.removeClass('active');
+
+                if (parseInt($listItem.data('listId')) === listId) {
+                    $listItem.addClass('active');
+                }
             });
         }
     }
