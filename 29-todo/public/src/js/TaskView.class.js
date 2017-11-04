@@ -24,7 +24,7 @@
                 for (let i = 0; i < tasks.length; i += 1) {
                     $root.append(`<tr>
                         <td>${tasks[i].description}</td>
-                        <td>${tasks[i].deadline ? tasks[i].deadline : '---'}</td>
+                        <td>${tasks[i].deadline ? moment(tasks[i]).format('DD.M.YYYY') : '---'}</td>
                         <td>
                             <label class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" ${tasks[i].done ? 'checked' : ''}>
