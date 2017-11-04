@@ -14,6 +14,7 @@
     "jquery.easing.1.3": "http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js",
     "bootstrap": "v4.0.0-beta",
     "dripicons": "https://github.com/amitjakhu/dripicons.git",
-    "anypicker": "2.0.9"
+    "anypicker": "2.0.9",
+    "moment": "2.19.1"
   }
 }

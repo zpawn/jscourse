@@ -32,7 +32,8 @@ const gulp = require('gulp'),
                 './bower_components/popper.js/dist/umd/popper.js',
                 './bower_components/bootstrap/dist/js/bootstrap.js',
                 './node_modules/lodash/lodash.js',
-                './bower_components/anypicker/dist/anypicker.min.js'
+                './bower_components/anypicker/dist/anypicker.min.js',
+                './bower_components/moment/min/moment-with-locales.min.js'
             ],
             destFile: 'dep.js',
             dest: './29-todo/public/dist/js/.'
