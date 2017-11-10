@@ -66,13 +66,8 @@
             );
         }
 
-        getList (listId = 0) {
-            return this.lists.reduce((lists, list) => {
-                if (list.id == listId) {
-                    return list;
-                }
-                return lists;
-            }, {});
+        getList (listId) {
+            return this.lists.find(list => list.id == listId);
         }
 
         getTasks (listId = 0) {
@@ -82,6 +77,26 @@
                 }
                 return tasks;
             }, []);
+        }
+
+        updateTask (listId, taskId, taskData) {
+            let list = this.lists.find( list => list.id == listId);
+            list.tasks[taskId][taskData.field] = taskData.value;
+
+            this.store.update(listId, list).then(
+                res => res.updated ? Mediator.publish(list.tasks, 'task') : console.log(res),
+                err => console.log(err)
+            );
+        }
+
+        removeTask (listId, taskId) {
+            let list = this.getList(listId);
+            list.tasks.splice(taskId, 1);
+
+            this.store.update(listId, list).then(
+                res => res.updated ? Mediator.publish(list.tasks, 'task') : console.log(res),
+                err => console.log(err)
+            );
         }
     }
 

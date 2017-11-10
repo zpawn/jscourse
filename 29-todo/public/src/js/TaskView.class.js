@@ -9,6 +9,18 @@
 
         constructor () {
             this.$root = TaskView.getRoot();
+            this.$dateTimeModal = $('#dateTimePicker');
+            this.$dateTimeModal.find('select.date').drum();
+        }
+
+        toggleEditTask (task) {
+            if (task.hasClass('openForm')) {
+                task.find('input').prop('type', 'text').focus();
+                task.find('span').hide();
+            } else {
+                task.find('input').prop('type', 'hidden');
+                task.find('span').show();
+            }
         }
 
         render (tasks) {
@@ -22,11 +34,22 @@
                 </tr>`);
             } else {
                 for (let i = 0; i < tasks.length; i += 1) {
-                    $root.append(`<tr>
-                        <td>${tasks[i].description}</td>
-                        <td>${tasks[i].deadline ? moment(tasks[i]).format('DD.M.YYYY') : '---'}</td>
+                    $root.append(`<tr class="js-task-parent" data-task-id="${i}">
                         <td>
-                            <label class="custom-control custom-checkbox">
+                            <div class="d-flex w-100 justify-content-between align-items-center">
+                                <form id="editTask${i}">
+                                    <span>${tasks[i].description}</span>
+                                    <input class="form-control" type="hidden" name="tasks[${i}]" value="${tasks[i].description}">
+                                </form>
+                                <span>
+                                    <a class="js-edit" href="javascript:void(0)"><span class="dripicons-pencil"></span></a>
+                                    <a class="js-remove" href="javascript:void(0)"><span class="dripicons-cross"></span></a>
+                                </span>
+                            </div>
+                        </td>
+                        <td class="js-datetime" data-timestamp="${tasks[i].deadline}">${tasks[i].deadline ? moment(tasks[i]).format('DD.M.YYYY') : '---'}</td>
+                        <td>
+                            <label class="js-done custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" ${tasks[i].done ? 'checked' : ''}>
                                 <span class="custom-control-indicator"></span>
                             </label>
