@@ -7,12 +7,14 @@
             this.listView = listView;
             this.taskView = taskView;
             this.listActive = '';
+            this.spinner = new todo.Spinner('#spinner');
 
             ////
 
             Mediator.subscribe(this.listView.render, 'list');
             Mediator.subscribe(this.taskView.render, 'task');
             Mediator.subscribe(this.listView.listActive, 'listActive');
+            Mediator.subscribe(this.spinner.toggle, 'spinner');
 
             ////
 
@@ -51,7 +53,7 @@
             if ($elm.hasClass('js-datetime')) {
                 console.log('>>> datetime', taskId);
             } else if ($elm.hasClass('js-done')) {
-                console.log('>>> done', taskId);
+                this._doneTask(taskId);
             } else if ($(e.target).closest('.js-edit').length) {
                 this._editTask(taskId);
             } else if ($(e.target).closest('.js-remove').length) {
@@ -88,6 +90,10 @@
                     value: e.target.elements[0].value
                 });
             });
+        }
+
+        _doneTask (taskId) {
+            console.log('>>> taskDone');
         }
     }
 

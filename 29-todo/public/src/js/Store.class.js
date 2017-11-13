@@ -5,6 +5,7 @@
 
         constructor () {
             this.endpoint = '/todo';
+            this.STATE_READY = 4;
         }
 
         find (listId = 0) {
@@ -30,6 +31,8 @@
             return new Promise((resolve, reject) => {
                 const req = new XMLHttpRequest();
 
+                Mediator.publish('show', 'spinner');
+
                 req.open(method, url);
                 req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
                 req.onload = () => {
@@ -37,6 +40,11 @@
                         resolve(JSON.parse(req.response));
                     } else {
                         reject(Error(req.statusText));
+                    }
+                };
+                req.onreadystatechange = () => {
+                    if (req.readyState === this.STATE_READY) {
+                        Mediator.publish('hide', 'spinner');
                     }
                 };
                 req.onerror = () => reject(Error("Network error"));
