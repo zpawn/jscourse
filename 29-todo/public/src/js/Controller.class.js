@@ -54,6 +54,10 @@
                 console.log('>>> datetime', taskId);
             } else if ($elm.hasClass('js-done')) {
                 this._doneTask(taskId);
+                this.model.updateTask(this.listActive, taskId, {
+                    field: 'done',
+                    value: !$elm.find('input').prop('checked')
+                });
             } else if ($(e.target).closest('.js-edit').length) {
                 this._editTask(taskId);
             } else if ($(e.target).closest('.js-remove').length) {
@@ -108,9 +112,7 @@
             });
         }
 
-        _doneTask (taskId) {
-            console.log('>>> taskDone');
-        }
+        _doneTask (taskId) {}
     }
 
     window.todo = window.todo || {};
