@@ -1,4 +1,4 @@
-((window, $) => {
+((window, $, _) => {
     "use strict";
 
     class TaskView {
@@ -33,13 +33,14 @@
                     <td class="text-center" colspan="3">No Tasks!</td>
                 </tr>`);
             } else {
-                for (let i = 0; i < tasks.length; i += 1) {
-                    $root.append(`<tr class="js-task-parent" data-task-id="${i}">
+
+                _.forEach(tasks, (task, taskId) => {
+                    $root.append(`<tr class="js-task-parent" data-task-id="${taskId}">
                         <td>
                             <div class="d-flex w-100 justify-content-between align-items-center">
-                                <form id="editTask${i}">
-                                    <span>${tasks[i].description}</span>
-                                    <input class="form-control" type="hidden" name="tasks[${i}]" value="${tasks[i].description}">
+                                <form id="editTask${taskId}">
+                                    <span>${task.description}</span>
+                                    <input class="form-control" type="hidden" name="tasks[${taskId}]" value="${task.description}">
                                 </form>
                                 <span>
                                     <a class="js-edit" href="javascript:void(0)"><span class="dripicons-pencil"></span></a>
@@ -47,19 +48,19 @@
                                 </span>
                             </div>
                         </td>
-                        <td class="js-datetime" data-timestamp="${tasks[i].deadline}">${tasks[i].deadline ? moment(tasks[i]).format('DD.M.YYYY') : '---'}</td>
+                        <td class="js-datetime" data-timestamp="${task.deadline}">${task.deadline ? moment(task.deadline).format('DD.M.YYYY') : '---'}</td>
                         <td>
                             <label class="js-done custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" ${tasks[i].done ? 'checked' : ''}>
+                                <input type="checkbox" class="custom-control-input" ${task.done ? 'checked' : ''}>
                                 <span class="custom-control-indicator"></span>
                             </label>
                         </td>
                     </tr>`);
-                }
+                });
             }
         }
     }
 
     window.todo = window.todo || {};
     window.todo.TaskView = TaskView;
-})(window, jQuery);
+})(window, jQuery, _);
