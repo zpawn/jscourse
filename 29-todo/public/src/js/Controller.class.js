@@ -39,7 +39,7 @@
                 Mediator.publish(this.model.getTasks(parseInt(this.listActive)), 'task');
                 Mediator.publish(this.listActive, 'listActive');
             } else if ($elm.hasClass('js-edit')) {
-                console.log('edit');
+                this._editList(listId);
             } else if ($elm.hasClass('js-remove')) {
                 this.model.remove(listId);
             }
@@ -59,6 +59,22 @@
             } else if ($(e.target).closest('.js-remove').length) {
                 this.model.removeTask(this.listActive, taskId);
             }
+        }
+
+        _editList (listId) {
+            let editList = this.listView.$root.find(`#editList${listId}`);
+
+            editList.addClass('openForm');
+            this.listView.toggleEditList(editList);
+
+            editList.on('submit', e => {
+                e.preventDefault();
+                editList.off('submit');
+
+                editList.removeClass('openForm');
+                this.listView.toggleEditList(editList);
+                this.model.updateList(listId, e.target.elements[0].value);
+            });
         }
 
         _bindNewListSubmit (e) {

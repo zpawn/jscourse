@@ -11,6 +11,16 @@
             this.$root = ListView.getRoot();
         }
 
+        toggleEditList (list) {
+            if (list.hasClass('openForm')) {
+                list.find('input').prop('type', 'text').focus();
+                list.find('span').hide();
+            } else {
+                list.find('input').prop('type', 'hidden');
+                list.find('span').show();
+            }
+        }
+
         render (listTasks) {
 
             let $root = ListView.getRoot();
@@ -19,7 +29,10 @@
             _.forEach(listTasks, listItem => {
                 $root.append(`<li class="list-group-item js-list-parent" href="javascript:void(0)" data-list-id="${listItem.id}">
                     <div class="d-flex w-100 justify-content-between">
-                        <span><a class="js-set" href="javascript:void(0)">${listItem.title}</a></span>
+                        <form id="editList${listItem.id}">
+                            <span><a class="js-set" href="javascript:void(0)">${listItem.title}</a></span>
+                            <input class="form-control" type="hidden" name="lists[${listItem.id}]" value="${listItem.title}">                        
+                        </form>
                         <span>
                             <a class="js-edit" href="javascript:void(0)"><span class="dripicons-pencil"></span></a>
                             <a class="js-remove" href="javascript:void(0)"><span class="dripicons-cross"></span></a>

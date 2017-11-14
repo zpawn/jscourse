@@ -70,6 +70,16 @@
             return this.lists.find(list => list.id == listId);
         }
 
+        updateList (listId = 0, listTitle) {
+            let list = this.getList(listId);
+            list.title = listTitle;
+
+            this.store.update(listId, list).then(
+                res => res.updated ? this.findAll() : console.log(res),
+                err => console.log(err)
+            );
+        }
+
         getTasks (listId = 0) {
             return this.lists.reduce((tasks, list) => {
                 if (list.id == listId) {
