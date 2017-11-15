@@ -59,6 +59,12 @@
                 this.listView.toggleEditList(editList);
                 this.model.updateList(listId, e.target.elements[0].value);
             });
+
+            editList.on('focusout', e => {
+                editList.removeClass('openForm');
+                this.listView.toggleEditList(editList);
+                editList.off('focusout');
+            });
         }
 
         _bindNewListSubmit (e) {
