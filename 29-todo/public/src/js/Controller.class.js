@@ -1,4 +1,4 @@
-((window, $) => {
+((window, $, _) => {
     "use strict";
 
     class Controller {
@@ -27,6 +27,8 @@
             $('#addNewListForm').on('submit', this._bindNewListSubmit.bind(this));
             $('#addNewTaskForm').on('submit', this._bindNewTaskSubmit.bind(this));
             $('#todoTasks').on('click', this._bindTaskItemClick.bind(this));
+            $('#searchList').on('keyup', this._bindSearchList.bind(this));
+            $('#searchTask').on('keyup', this._bindSearchTask.bind(this));
         }
 
         _bindListItemClick (e) {
@@ -81,7 +83,6 @@
             if ($elm.hasClass('js-datetime')) {
                 console.log('>>> datetime', taskId);
             } else if ($elm.hasClass('js-done')) {
-                this._doneTask(taskId);
                 this.model.updateTask(this.listActive, taskId, {
                     field: 'done',
                     value: !$elm.find('input').prop('checked')
@@ -124,9 +125,41 @@
             });
         }
 
-        _doneTask (taskId) {}
+        _bindSearchList (e) {
+            let search = _.trim(e.target.value).toLowerCase();
+
+            if (search.length > 0) {
+                Mediator.publish(
+                    this.model.lists.filter(
+                        list => list.title.toLowerCase().indexOf(search) !== -1
+                    ),
+                    'list'
+                );
+            } else {
+                Mediator.publish(this.model.lists, 'list');
+            }
+        }
+
+        _bindSearchTask (e) {
+            if (this.listActive) {
+
+                let search = _.trim(e.target.value).toLowerCase();
+
+                if (search.length > 0) {
+                    Mediator.publish(
+                        this.model.getTasks(this.listActive)
+                            .filter(
+                                task => task.description.toLowerCase().indexOf(search) !== -1
+                            ),
+                        'task'
+                    );
+                } else {
+                    Mediator.publish(this.model.getTasks(this.listActive), 'task');
+                }
+            }
+        }
     }
 
     window.todo = window.todo || {};
     window.todo.Controller = Controller;
-})(window, jQuery);
+})(window, jQuery, _);
