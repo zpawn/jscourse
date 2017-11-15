@@ -45,26 +45,6 @@
             }
         }
 
-        _bindTaskItemClick (e) {
-            let $elm = $(e.target),
-                $parent = $elm.closest('.js-task-parent'),
-                taskId = $parent.data('taskId');
-
-            if ($elm.hasClass('js-datetime')) {
-                console.log('>>> datetime', taskId);
-            } else if ($elm.hasClass('js-done')) {
-                this._doneTask(taskId);
-                this.model.updateTask(this.listActive, taskId, {
-                    field: 'done',
-                    value: !$elm.find('input').prop('checked')
-                });
-            } else if ($(e.target).closest('.js-edit').length) {
-                this._editTask(taskId);
-            } else if ($(e.target).closest('.js-remove').length) {
-                this.model.removeTask(this.listActive, taskId);
-            }
-        }
-
         _editList (listId) {
             let editList = this.listView.$root.find(`#editList${listId}`);
 
@@ -85,6 +65,26 @@
             e.preventDefault();
             this.model.create(e.target);
             $('#newToDoList').val("");
+        }
+
+        _bindTaskItemClick (e) {
+            let $elm = $(e.target),
+                $parent = $elm.closest('.js-task-parent'),
+                taskId = $parent.data('taskId');
+
+            if ($elm.hasClass('js-datetime')) {
+                console.log('>>> datetime', taskId);
+            } else if ($elm.hasClass('js-done')) {
+                this._doneTask(taskId);
+                this.model.updateTask(this.listActive, taskId, {
+                    field: 'done',
+                    value: !$elm.find('input').prop('checked')
+                });
+            } else if ($(e.target).closest('.js-edit').length) {
+                this._editTask(taskId);
+            } else if ($(e.target).closest('.js-remove').length) {
+                this.model.removeTask(this.listActive, taskId);
+            }
         }
 
         _bindNewTaskSubmit (e) {
@@ -109,6 +109,12 @@
                     field: 'description',
                     value: e.target.elements[0].value
                 });
+            });
+
+            editTask.on('focusout', e => {
+                editTask.removeClass('openForm');
+                this.taskView.toggleEditTask(editTask);
+                editTask.off('focusout');
             });
         }
 
