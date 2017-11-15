@@ -22,7 +22,6 @@
 </div>
 
 <span class="dripicons-chevron-right"></span>
-<span class="dripicons-arrow-thin-down"></span>
 <span class="dripicons-calendar"></span>
 
 <section class="container">
@@ -77,7 +76,9 @@
                 <tr>
                     <th>description</th>
                     <th width="30%">deadline</th>
-                    <th width="10%">done</th>
+                    <th width="10%">
+                        <a id="sortByDone" href="javascript:void(0)">done</a>&nbsp;<span class="dripicons-arrow-thin-down" id="sortByDoneIcon" style="display: none;"></span>
+                    </th>
                 </tr>
                 </thead>
                 <tbody id="todoTasks">

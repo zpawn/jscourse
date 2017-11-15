@@ -29,6 +29,7 @@
             $('#todoTasks').on('click', this._bindTaskItemClick.bind(this));
             $('#searchList').on('keyup', this._bindSearchList.bind(this));
             $('#searchTask').on('keyup', this._bindSearchTask.bind(this));
+            $('#sortByDone').on('click', this._bindSortByDone.bind(this));
         }
 
         _bindListItemClick (e) {
@@ -155,6 +156,24 @@
                     );
                 } else {
                     Mediator.publish(this.model.getTasks(this.listActive), 'task');
+                }
+            }
+        }
+
+        _bindSortByDone (e) {
+            if (this.listActive) {
+                let sortIcon = $('#sortByDoneIcon');
+
+                if (sortIcon.is(':visible')) {
+                    sortIcon.hide();
+                    Mediator.publish(this.model.getTasks(this.listActive), 'task')
+                } else {
+                    sortIcon.show();
+                    Mediator.publish(
+                        this.model.getTasks(this.listActive)
+                            .filter(task => task.done === false),
+                        'task'
+                    );
                 }
             }
         }
