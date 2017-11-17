@@ -6,12 +6,12 @@
         let show = false;
 
         return {
-            toggle: (type) => {
+            toggle (type) {
                 (type === 'show') ? $root.show() : $root.hide();
             }
         };
     };
 
-    window.todo = window.Spinner || {};
+    window.todo = window.todo || {};
     window.todo.Spinner = Spinner;
 })(window, jQuery);

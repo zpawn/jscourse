@@ -1,0 +1,10 @@
+.alert-wrapper {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 99999;
+
+  .alert {
+    min-width: 300px;
+  }
+}

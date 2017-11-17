@@ -2,12 +2,14 @@
     "use strict";
 
     class Controller {
+
         constructor (model, listView, taskView) {
             this.model = model;
             this.listView = listView;
             this.taskView = taskView;
             this.listActive = '';
             this.spinner = new todo.Spinner('#spinner');
+            this.alert = new todo.Alert();
 
             ////
 
@@ -15,6 +17,7 @@
             Mediator.subscribe(this.taskView.render, 'task');
             Mediator.subscribe(this.listView.listActive, 'listActive');
             Mediator.subscribe(this.spinner.toggle, 'spinner');
+            Mediator.subscribe(this.alert.render, 'alert');
 
             ////
 

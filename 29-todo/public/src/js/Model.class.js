@@ -15,7 +15,8 @@
                             return _.merge(res, {id: listId});
                         });
                     }));
-                }
+                },
+                err => Mediator.publish({message: err}, 'alert')
             ).then(lists => {
                 this.lists = lists;
                 Mediator.publish(this.lists, 'list');
@@ -25,7 +26,7 @@
         findOne (listId) {
             this.store.find(listId).then(
                 res => Mediator.publish(res, 'task'),
-                err => console.error(err)
+                err => Mediator.publish({message: err}, 'alert')
             );
         }
 
@@ -38,8 +39,8 @@
                 };
 
             this.store.create(listId, data).then(
-                res => res.created ? this.findAll() : console.log('not created'),
-                err => console.log(err)
+                res => res.created ? this.findAll() : Mediator.publish(res.error, 'alert'),
+                err => Mediator.publish({message: err}, 'alert')
             );
         }
 
@@ -54,15 +55,15 @@
             });
 
             this.store.update(listId, list).then(
-                res => res.updated ? Mediator.publish(list.tasks, 'task') : console.log(res),
-                err => console.log(err)
+                res => res.updated ? Mediator.publish(list.tasks, 'task') : Mediator.publish(res.error, 'alert'),
+                err => Mediator.publish({message: err}, 'alert')
             );
         }
 
         remove (listId) {
             this.store.remove(listId).then(
-                res => res.deleted ? this.findAll() : console.log('error:', res.error),
-                err => console.log(err)
+                res => res.deleted ? this.findAll() : Mediator.publish(res.error, 'alert'),
+                err => Mediator.publish({message: err}, 'alert')
             );
         }
 
@@ -75,8 +76,8 @@
             list.title = listTitle;
 
             this.store.update(listId, list).then(
-                res => res.updated ? this.findAll() : console.log(res),
-                err => console.log(err)
+                res => res.updated ? this.findAll() : Mediator.publish(res.error, 'alert'),
+                err => Mediator.publish({message: err}, 'alert')
             );
         }
 
@@ -94,8 +95,8 @@
             list.tasks[taskId][taskData.field] = taskData.value;
 
             this.store.update(listId, list).then(
-                res => res.updated ? Mediator.publish(list.tasks, 'task') : console.log(res),
-                err => console.log(err)
+                res => res.updated ? Mediator.publish(list.tasks, 'task') : Mediator.publish(res.error, 'alert'),
+                err => Mediator.publish({message: err}, 'alert')
             );
         }
 
@@ -104,8 +105,8 @@
             list.tasks.splice(taskId, 1);
 
             this.store.update(listId, list).then(
-                res => res.updated ? Mediator.publish(list.tasks, 'task') : console.log(res),
-                err => console.log(err)
+                res => res.updated ? Mediator.publish(list.tasks, 'task') : Mediator.publish(res.error, 'alert'),
+                err => Mediator.publish({message: err}, 'alert')
             );
         }
     }
