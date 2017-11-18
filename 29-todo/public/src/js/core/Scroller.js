@@ -2,12 +2,13 @@
     "use strict";
 
     class Scroller {
-        static get () {
-            return document.querySelectorAll('.js-scroller');
+
+        constructor (selector) {
+            this.scrollerContainer = document.querySelectorAll(selector);
         }
 
         render () {
-            Scroller.get().forEach(scroll => {
+            this.scrollerContainer.forEach(scroll => {
                 let ps = new PerfectScrollbar(scroll);
             });
         }

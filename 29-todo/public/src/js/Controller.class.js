@@ -10,7 +10,7 @@
             this.listActive = '';
             this.spinner = new todo.Spinner('#spinner');
             this.alert = new todo.Alert();
-            this.scroller = new todo.Scroller();
+            this.scroller = new todo.Scroller('.js-scroller');
 
             ////
 
@@ -19,10 +19,10 @@
             Mediator.subscribe(this.listView.listActive, 'listActive');
             Mediator.subscribe(this.spinner.toggle, 'spinner');
             Mediator.subscribe(this.alert.render, 'alert');
-            Mediator.subscribe(this.scroller.render, 'scroller');
 
             ////
 
+            this.scroller.render();
             this.model.findAll();
             this.bind();
         }
