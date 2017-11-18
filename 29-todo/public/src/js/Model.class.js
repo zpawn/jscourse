@@ -20,6 +20,7 @@
             ).then(lists => {
                 this.lists = lists;
                 Mediator.publish(this.lists, 'list');
+                Mediator.publish({}, 'scroller')
             });
         }
 

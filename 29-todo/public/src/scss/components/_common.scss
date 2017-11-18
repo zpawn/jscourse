@@ -13,4 +13,9 @@
   }
 
   &__tasks {}
+
+  &__scroller {
+    height: 250px;
+    overflow-y: scroll;
+  }
 }
