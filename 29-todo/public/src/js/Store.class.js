@@ -9,22 +9,22 @@
         }
 
         find (listId = 0) {
-            return this.send('GET', listId);
+            return this.send(listId);
         }
 
         create (listId = 0, data = {}) {
-            return this.send('POST', listId, {todo: JSON.stringify(data)});
+            return this.send(listId, 'POST', {todo: JSON.stringify(data)});
         }
 
         update (listId = 0, data = {}) {
-            return this.send('PUT', listId, {todo: JSON.stringify(data)});
+            return this.send(listId, 'PUT', {todo: JSON.stringify(data)});
         }
 
         remove (listId = 0) {
-            return this.send('DELETE', listId);
+            return this.send(listId, 'DELETE');
         }
 
-        send (method = 'GET', listId, data) {
+        send (listId, method = 'GET', data = {}) {
 
             const url = `${this.endpoint}/${listId === 0 ? '' : listId}`;
 
