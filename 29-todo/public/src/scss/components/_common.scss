@@ -17,5 +17,20 @@
   &__scroller {
     height: 250px;
     overflow-y: scroll;
+    position: relative;
+  }
+}
+
+.table {
+  &__header {
+    &--fixed {
+      display: block;
+      position: sticky;
+      width: 100%;
+      top: 0;
+      margin-bottom: 0;
+      background-color: #fff;
+      z-index: 1;
+    }
   }
 }
