@@ -2,12 +2,11 @@
 @import "./../../../../bower_components/bootstrap/scss/bootstrap";
 @import "./../../../../bower_components/dripicons/webfont/webfont";
 @import "./../../../../bower_components/utatti-perfect-scrollbar/css/perfect-scrollbar";
-
-//@import "./../../../../bower_components/anypicker/dist/anypicker-all.min";
-@import "./../../../../bower_components/drumjs/lib/drum";
+@import "./../../../../bower_components/anypicker/dist/anypicker";
+@import "./../../../../bower_components/anypicker/dist/anypicker-ios";
 
 /** Application */
 @import "components/common";
-@import "components/date.time.picker";
 @import "components/spiner";
 @import "components/alerts";
+@import "components/material.datetime.picker";

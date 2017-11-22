@@ -17,6 +17,6 @@
     "anypicker": "2.0.9",
     "moment": "2.19.1",
     "drumjs": "https://github.com/3epnm/drumjs.git#0.1.3",
-    "utatti-perfect-scrollbar": "^1.2.0"
+    "utatti-perfect-scrollbar": "1.2.0"
   }
 }

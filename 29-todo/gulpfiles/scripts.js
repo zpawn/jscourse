@@ -34,11 +34,7 @@ const gulp = require('gulp'),
                 './node_modules/lodash/lodash.js',
                 './bower_components/moment/min/moment-with-locales.min.js',
                 './bower_components/utatti-perfect-scrollbar/dist/perfect-scrollbar.js',
-
-                // './bower_components/anypicker/dist/anypicker.min.js',
-                './bower_components/drumjs/lib/drum.min.js'
-                // './bower_components/drumjs/contrib/hammerjs/hammer.min.js',
-                // './bower_components/drumjs/contrib/hammerjs/hammer.fakemultitouch.js'
+                './bower_components/anypicker/dist/anypicker.js'
             ],
             destFile: 'dep.js',
             dest: './29-todo/public/dist/js/.'

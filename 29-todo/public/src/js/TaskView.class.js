@@ -9,8 +9,6 @@
 
         constructor () {
             this.$root = TaskView.getRoot();
-            this.$dateTimeModal = $('#dateTimePicker');
-            this.$dateTimeModal.find('select.date').drum();
         }
 
         toggleEditTask (task) {
@@ -48,7 +46,7 @@
                                 </span>
                             </div>
                         </td>
-                        <td class="js-datetime" data-timestamp="${task.deadline}">${task.deadline ? moment(task.deadline).format('DD.M.YYYY') : '---'}</td>
+                        <td class="js-datetime" data-timestamp="${task.deadline}">${task.deadline ? moment(task.deadline).format('DD.MM.YYYY HH:mm') : '---'}</td>
                         <td>
                             <label class="js-done custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" ${task.done ? 'checked' : ''}>

@@ -11,6 +11,7 @@
             this.spinner = new todo.Spinner('#spinner');
             this.alert = new todo.Alert();
             this.scroller = new todo.Scroller('.js-scroller');
+            this.dateTimePicker = new todo.DateTimePicker();
 
             ////
 
@@ -87,7 +88,12 @@
                 taskId = $parent.data('taskId');
 
             if ($elm.hasClass('js-datetime')) {
-                console.log('>>> datetime', taskId);
+                this.dateTimePicker.open((date) => {
+                    this.model.updateTask(this.listActive, taskId, {
+                        field: 'deadline',
+                        value: moment(date).valueOf()
+                    });
+                });
             } else if ($elm.hasClass('js-done')) {
                 this.model.updateTask(this.listActive, taskId, {
                     field: 'done',
